@@ -1,17 +1,17 @@
-name: Format CS code
+name: Format Codebase
 
 on: [ pull_request ]
 
 jobs:
   cpp_style_check:
     runs-on: ubuntu-latest
-    name: Check C Styling
+    name: 🧼 Run Uncrustify
     steps:
-    - name: Checkout this commit
+    - name: ✅ Checkout this commit
       uses: actions/checkout@v3
       with:
         fetch-depth: 2
-    - name: uncrustify check
+    - name: 🧼 Uncrustify check
       uses: Daniel-Trevitz/uncrustify-check@v1
       with:
         configFile: 'uncrustify.cfg'
