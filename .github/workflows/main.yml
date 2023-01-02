@@ -1,0 +1,16 @@
+name: Format CS code
+
+on: [push]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install uncrustify
+      run: |
+        sudo apt-get update
+        sudo apt-get install uncrustify
+    - name: Format code
+      run: |
+        find . -name "*.cs" -exec uncrustify -c uncrustify.cfg --no-backup {} \;
